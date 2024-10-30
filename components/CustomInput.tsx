@@ -2,13 +2,15 @@ import React from "react";
 
 import { FormField, FormLabel, FormControl, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
-import { Control, FieldPath, Form } from "react-hook-form";
+import { Control, FieldPath } from "react-hook-form";
 import { z } from "zod";
 import { authFormSchema } from "@/lib/utils";
 
+const authForm = authFormSchema("sign-up");
+
 interface CustomInputProps {
-  control: Control<z.infer<typeof authFormSchema>>;
-  name: FieldPath<z.infer<typeof authFormSchema>>;
+  control: Control<z.infer<typeof authForm>>;
+  name: FieldPath<z.infer<typeof authForm>>;
   label: string;
   placeholder: string;
 }
